@@ -1,0 +1,54 @@
+﻿@model List<UserTask>
+
+<h2>Completed Task List</h2>
+
+<div style="display: block">
+    <a href="/UserTask/InsertUserTask/">Create a New Task</a>
+    <a href="/UserTask/">View All Tasks</a>
+    <a href="/UserTask/ToDoUserTask/">View To Do Tasks</a>
+    <a href="/UserTask/InProgressUserTask/">View In Progress Tasks</a>
+</div>
+
+<table class="table">
+    <tr>
+        <!-- Table headers -->
+        <th>ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Created By</th>
+        <th>Assigned To</th>
+        <th>Due Date</th>
+    </tr>
+
+    <!-- Loop through each UserTask in the Model -->
+    @foreach (var UserTask in @Model)
+    {
+        <tr>
+            <!-- Display UserTask properties in table cells -->
+            <td><a href="/UserTask/ViewUserTask/@UserTask.Id">@UserTask.Id</a></td>
+            <td>@UserTask.Title</td>
+            <td>@UserTask.Description</td>
+
+            <!-- Apply different colors based on the UserTask status -->
+            @if (UserTask.Status == "To Do")
+            {
+                <td><span style="color:red;">@UserTask.Status</span></td>
+            }
+            else if (UserTask.Status == "In Progress")
+            {
+                <td><span style="color:orange;">@UserTask.Status</span></td>
+            }
+            else if (UserTask.Status == "Completed")
+            {
+                <td><span style="color:green;">@UserTask.Status</span></td>
+            }
+            <td>@UserTask.CreatedBy</td>
+            <td>@UserTask.AssignedTo</td>
+            <td>@UserTask.DueDt</td>
+
+            <!-- Added delete button for each task -->
+            <td><button onclick="deleteTask(@UserTask.Id)">Delete</button></td>
+        </tr>
+    }
+</table>

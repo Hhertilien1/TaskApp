@@ -1,0 +1,54 @@
+﻿@model UserTask
+
+<h2>Update UserTask</h2>
+
+@using (Html.BeginForm("UpdateUserTaskToDatabase", "UserTask", FormMethod.Post))
+{
+    <!-- Hidden field for the UserTask ID -->
+    <input asp-for="Id" type="hidden" value="@Model.Id" />
+
+    <!-- Input field for the UserTask title -->
+    <div class="form-group">
+        <label asp-for="Title" class="control-label">Title</label>
+        <input asp-for="Title" class="form-control" value="@Model.Title" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <!-- Input field for the UserTask description -->
+    <div class="form-group">
+        <label asp-for="Description" class="control-label">Description</label>
+        <input asp-for="Description" class="form-control" value="@Model.Description" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <!-- Input field for the UserTask status -->
+    <div class="form-group">
+        <label asp-for="Status" class="control-label">Status (To Do, In Progress, Completed)</label>
+        <input asp-for="Status" class="form-control" value="@Model.Status" />
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+
+    <!-- Input field for the UserTask creator -->
+    <div class="form-group">
+        <label asp-for="CreatedBy" class="control-label">Created By</label>
+        <input asp-for="CreatedBy" class="form-control" value="@Model.CreatedBy" />
+        <span asp-validation-for="CreatedBy" class="text-danger"></span>
+    </div>
+
+    <!-- Input field for the UserTask assignee -->
+    <div class="form-group">
+        <label asp-for="AssignedTo" class="control-label">Assigned To</label>
+        <input asp-for="AssignedTo" class="form-control" value="@Model.AssignedTo" />
+        <span asp-validation-for="AssignedTo" class="text-danger"></span>
+    </div>
+
+    <!-- Input field for the UserTask due date -->
+    <div class="form-group">
+        <label asp-for="DueDt" class="control-label">Due Date (00/00/0000)</label>
+        <input asp-for="DueDt" class="form-control" value="@Model.DueDt" />
+        <span asp-validation-for="DueDt" class="text-danger"></span>
+    </div>
+
+    <!-- Submit button to update the UserTask -->
+    <input type="submit" value="Update UserTask" class="btn btn-primary" />
+}

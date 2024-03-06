@@ -1,0 +1,77 @@
+/* Setting the base font size to 14px for the entire document */
+html {
+    font-size: 14px;
+}
+
+/* Media query for screens with a minimum width of 768px */
+@media (min-width: 768px) {
+    /* Increasing the base font size to 16px for larger screens */
+    html {
+        font-size: 16px;
+    }
+}
+
+/* Styling focus states for various elements */
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+/* Setting up relative positioning and minimum height for the HTML element */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+/* Adding bottom margin to the body element */
+body {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+/* Styling the footer element */
+.footer {
+    background-color: lightblue;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+}
+
+/* Styling the element with id 'pgHeader' */
+#pgHeader {
+    background-color: lightblue;
+}
+
+/* Styling the background photo for a more user friendly look*/
+#home {
+    background-image: url("images/960x0.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* Styling header link colors*/
+.navbar-nav .nav-link {
+    color: royalblue !important;
+}
+
+/* Styling initial welcome address*/
+h1 {
+    text-shadow: 1px 1px 2px black, 0 0 1em darkblue, 0 0 0.2em darkblue;
+    color: lightblue;
+    font: 1.5em Georgia, serif;
+}
+
+/* Styling page link color*/
+a {
+    color: royalblue;
+}
+
+/* Styling page hover link color*/
+a:hover {
+    color: darkblue;
+}
+

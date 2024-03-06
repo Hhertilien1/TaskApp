@@ -1,0 +1,39 @@
+﻿
+@model UserTask
+
+<h3>@Model.Id Information</h3>
+
+<table class="table">
+    <tr>
+        <!-- Table headers -->
+        <th>UserTask ID</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Created By</th>
+        <th>Assigned To</th>
+        <th>Due Date</th>
+    </tr>
+    <tr>
+        <!-- Display UserTask information in table cells -->
+        <td>@Model.Id</td>
+        <td>@Model.Description</td>
+        <td>@Model.Status</td>
+        <td>@Model.CreatedBy</td>
+        <td>@Model.AssignedTo</td>
+        <td>@Model.DueDt</td>
+    </tr>
+</table>
+
+<!-- Link to update the UserTask -->
+<a href="/UserTask/UpdateUserTask/@Model.Id">Update this UserTask</a>
+
+<div style="display: block">
+    <!-- Form for deleting the UserTask -->
+    @using (Html.BeginForm("DeleteUserTask", "UserTask", "Post"))
+    {
+        <!-- Hidden field for the UserTask ID -->
+        <input type="hidden" asp-for="Id" value="@Model.Id" />
+        <!-- Submit button to delete the UserTask -->
+        <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this UserTask" />
+    }
+</div>
